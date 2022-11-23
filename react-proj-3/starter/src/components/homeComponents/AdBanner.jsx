@@ -12,9 +12,10 @@ const AdBanner = () => {
           rgba(0, 0, 0, 0.8)),
           url(${salmon})`,
         backgroundSize: "cover",
+        height: 800,
       }}
     >
-      <div>
+      <div className="salmon-container">
         <h3>New Recipe</h3>
         <h1>Pineapple Salmon</h1>
         <h3>
