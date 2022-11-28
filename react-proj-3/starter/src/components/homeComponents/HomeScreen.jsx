@@ -5,7 +5,7 @@ import axios from "axios";
 import RecipeCard from "../RecipeCard";
 
 const HomeScreen = () => {
-  const [recipes, setRecipes] = useState();
+  const [recipes, setRecipes] = useState([]);
 
   const [search, setSearch] = useState("");
 
@@ -20,6 +20,16 @@ const HomeScreen = () => {
     getRecipes();
   }, []);
 
+  const recipeDisplay = recipes
+    .filter((recipe, index) => {
+      let title = recipe.recipe_name.toLowerCase();
+      let searchParams = search.toLowerCase();
+      return title.includes(searchParams);
+    })
+    .map((recipe, index) => {
+      return <RecipeCard recipe={recipe} />;
+    });
+
   return (
     <div>
       <AdBanner />
@@ -32,11 +42,8 @@ const HomeScreen = () => {
           placeholder="Search for a Recipe:"
         />
       </div>
-
       <div className="card-container">
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
+        {recipeDisplay}
       </div>
     </div>
   );
