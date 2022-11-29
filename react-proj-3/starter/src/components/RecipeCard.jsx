@@ -1,16 +1,18 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const RecipeCard = ({recipe}) => {
 
+    const navigate = useNavigate();
+
     const handleClick = () => {
-        Navigate(`/recipe/${recipe.recipe_id}`)
+        navigate(`/recipe/${recipe.recipe_id}`)
     };
 
     return (
         <div className="recipe-card">
-            <img src="https://colonydiner.com/wp-content/uploads/2021/03/French.jpg" alt="" />
-            <h1>"Food Title Here"</h1>
+            <img src={recipe.image_url} alt="" />
+            <h1>{recipe.recipe_name}</h1>
             <button onClick={handleClick}>See More</button>
         </div>
     );

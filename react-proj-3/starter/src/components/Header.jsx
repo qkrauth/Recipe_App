@@ -9,7 +9,7 @@ const Header = () => {
         <Link to="">
           <button>Home</button>
         </Link>
-        <Link to="">
+        <Link to="/newRecipe">
           <button>Add Recipe</button>
         </Link>
       </nav>
